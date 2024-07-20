@@ -7,7 +7,6 @@ pipeline {
         choice(name: 'SUB_FOLDER', choices: ['AMI-Jenkins', 'AMI-EKS-node', 'AMI-EC2'], description: 'Select the sub-folder where packer file is')
     }
     stages {
-
         stage('clean Workspace'){
             steps{
                 cleanWs()
@@ -15,7 +14,7 @@ pipeline {
         }
         stage ('Checkout code') {
             steps {
-                git branch: 'main', url: 'https://github.com/Barney7777/petclinic_IaC_K8sManifests.git'
+                git branch: 'main', url: 'https://github.com/Barney7777/petclinic-packer-ami.git'
             }
         }
         stage ('packer init') {
